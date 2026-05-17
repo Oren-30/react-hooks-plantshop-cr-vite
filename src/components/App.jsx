@@ -1,5 +1,5 @@
 
-import PlantPage from "./components/PlantPage";
+import PlantPage from "./PlantPage";
 
 function App() {
   return <PlantPage />;
