@@ -1,11 +1,9 @@
-import React from "react";
-
 function Header() {
   return (
     <header>
       <h1>
-        Plantsy
-        <span className="logo" role="img">
+        Plantsy{" "}
+        <span role="img" aria-label="leaf" className="logo">
           🌱
         </span>
       </h1>
