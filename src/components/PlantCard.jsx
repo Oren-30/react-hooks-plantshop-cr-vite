@@ -1,12 +1,14 @@
-import { useState } from "react"
+
+
+import { useState } from "react";
 
 function PlantCard({ plant }) {
-  // Local stock state (not persisted)
-  const [inStock, setInStock] = useState(plant.inStock)
+  // Local stock state
+  const [inStock, setInStock] = useState(plant.inStock);
 
-  // Toggle plant stock status
+  // Toggle stock status
   function handleToggleStock() {
-    setInStock(!inStock)
+    setInStock(!inStock);
   }
 
   return (
@@ -19,11 +21,12 @@ function PlantCard({ plant }) {
       <h4>{plant.name}</h4>
 
       <p>Price: ${plant.price}</p>
-       <button onClick={handleToggleStock}>
+
+      <button onClick={handleToggleStock}>
         {inStock ? "In Stock" : "Sold Out"}
       </button>
     </li>
-  )
+  );
 }
 
-export default PlantCard
+export default PlantCard;

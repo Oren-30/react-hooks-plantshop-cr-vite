@@ -1,4 +1,7 @@
+
+
 import { useEffect, useState } from "react";
+import Header from "./Header";
 import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
@@ -17,7 +20,7 @@ function PlantPage() {
       .then((data) => setPlants(data));
   }, []);
 
-  // Add newly created plant
+  // Add new plant to state
   function addPlant(newPlant) {
     setPlants([...plants, newPlant]);
   }
@@ -29,6 +32,8 @@ function PlantPage() {
 
   return (
     <main>
+      <Header />
+
       <NewPlantForm addPlant={addPlant} />
 
       <Search

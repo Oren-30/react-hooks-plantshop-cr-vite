@@ -1,4 +1,6 @@
-import PlantCard from "./PlantCard"
+
+
+import PlantCard from "./PlantCard";
 
 function PlantList({ plants }) {
   return (
@@ -10,7 +12,7 @@ function PlantList({ plants }) {
         />
       ))}
     </ul>
-  )
+  );
 }
 
-export default PlantList
+export default PlantList;

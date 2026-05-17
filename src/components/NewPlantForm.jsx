@@ -1,4 +1,6 @@
-import { useState } from "react"
+// src/components/NewPlantForm.jsx
+
+import { useState } from "react";
 
 function NewPlantForm({ addPlant }) {
   // Controlled form state
@@ -6,26 +8,28 @@ function NewPlantForm({ addPlant }) {
     name: "",
     image: "",
     price: ""
-  })
+  });
 
-  // Update form state when user types
+  // Update form state
   function handleChange(e) {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
-       })
+    });
   }
 
-  // Submit new plant to backend
+  // Submit form
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const newPlant = {
       ...formData,
       price: Number(formData.price),
       inStock: true
-    }
-fetch("http://localhost:6001/plants", {
+    };
+
+    // Send POST request
+    fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -33,14 +37,14 @@ fetch("http://localhost:6001/plants", {
       body: JSON.stringify(newPlant)
     })
       .then((response) => response.json())
-      .then((data) => addPlant(data))
+      .then((data) => addPlant(data));
 
-    // Reset form after submit
+    // Clear form inputs
     setFormData({
       name: "",
       image: "",
       price: ""
-       })
+    });
   }
 
   return (
@@ -54,7 +58,9 @@ fetch("http://localhost:6001/plants", {
         placeholder="Plant name"
         value={formData.name}
         onChange={handleChange}
-      /><input
+      />
+
+      <input
         type="text"
         name="image"
         placeholder="Image URL"
@@ -69,11 +75,12 @@ fetch("http://localhost:6001/plants", {
         value={formData.price}
         onChange={handleChange}
       />
-<button type="submit">
+
+      <button type="submit">
         Add Plant
       </button>
     </form>
-  )
+  );
 }
 
-export default NewPlantForm
+export default NewPlantForm;

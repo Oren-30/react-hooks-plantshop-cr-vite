@@ -1,3 +1,5 @@
+
+
 function Search({ search, setSearch }) {
   return (
     <div className="searchbar">
@@ -8,5 +10,7 @@ function Search({ search, setSearch }) {
         onChange={(e) => setSearch(e.target.value)}
       />
     </div>
-  )
+  );
 }
+
+export default Search;
